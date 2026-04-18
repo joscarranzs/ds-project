@@ -1,0 +1,31 @@
+# Maven build output
+/target/
+
+# IntelliJ IDEA
+*.iml
+/.idea/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# OS generated files
+Thumbs.db
+
+# Compiled Java classes
+*.class
+
+# Temporary files
+*~
+*.tmp
+*.swp
