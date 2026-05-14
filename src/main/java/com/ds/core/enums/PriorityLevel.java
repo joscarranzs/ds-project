@@ -1,3 +1,8 @@
 package com.ds.core.enums;
 
-// TODO: pendiente desarrollo
+public enum PriorityLevel {
+    LOW,
+    MEDIUM,
+    HIGH,
+    URGENT
+}

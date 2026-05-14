@@ -1,3 +1,7 @@
 package com.ds.core.enums;
 
-// TODO: pendiente desarrollo
+public enum RouteStatus {
+    OPEN,
+    CONGESTED,
+    BLOCKED
+}

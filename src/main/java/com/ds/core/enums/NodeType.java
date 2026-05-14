@@ -1,3 +1,8 @@
 package com.ds.core.enums;
 
-// TODO: pendiente desarrollo
+public enum NodeType {
+    CLIENT,
+    RESTAURANT,
+    INTERSECTION,
+    DELIVERY_POINT
+}
