@@ -1,14 +1,16 @@
 package com.ds.core.datastructure;
 
-import com.ds.core.services.DeliveryManager;
+import com.ds.core.models.Order;
 import java.util.List;
+import java.util.ArrayList;
 
 public class OrderHeap {
     /**
      * Almacenamiento interno del montón en orden de niveles. La raíz (máximo) está
      * en el índice 0.
      */
-    private final List<Order> heap = new DeliveryManager().getOrders();
+    // almacena el heap en forma de lista (orden por niveles). raíz en índice 0
+    private final List<Order> heap = new ArrayList<>();
 
     /**
      * Construye un montón máximo vacío.
@@ -36,6 +38,7 @@ public class OrderHeap {
      * @param value elemento a insertar; no se valida explícitamente si es null
      */
     public void insert(Order value) {
+        if (value == null) throw new IllegalArgumentException("Order cannot be null");
         heap.add(value);
         siftUp(heap.size() - 1);
     }
@@ -103,7 +106,7 @@ public class OrderHeap {
      *
      * @return el elemento máximo o null si el montón está vacío
      */
-    public T peek() {
+    public Order peek() {
         return heap.isEmpty() ? null : heap.get(0);
     }
 
@@ -121,9 +124,10 @@ public class OrderHeap {
         int i = idx;
         while (i > 0) {
             int parent = (i - 1) / 2;
-            T current = heap.get(i);
-            T p = heap.get(parent);
-            if (p.compareTo(current) < 0) {
+            Order current = heap.get(i);
+            Order p = heap.get(parent);
+            // max-heap: si el hijo tiene mayor prioridad que el padre, intercambiamos
+            if (p.getPriority() < current.getPriority()) {
                 heap.set(i, p);
                 heap.set(parent, current);
                 i = parent;
@@ -150,14 +154,13 @@ public class OrderHeap {
             int left = 2 * i + 1;
             int right = left + 1;
             int largest = i;
-            if (left < n && heap.get(left).compareTo(heap.get(largest)) > 0) largest = left;
-            if (right < n && heap.get(right).compareTo(heap.get(largest)) > 0) largest = right;
+            if (left < n && heap.get(left).getPriority() > heap.get(largest).getPriority()) largest = left;
+            if (right < n && heap.get(right).getPriority() > heap.get(largest).getPriority()) largest = right;
             if (largest == i) break;
-            T tmp = heap.get(i);
+            Order tmp = heap.get(i);
             heap.set(i, heap.get(largest));
             heap.set(largest, tmp);
             i = largest;
         }
     }
 }
-
