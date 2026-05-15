@@ -25,7 +25,8 @@ public class RouteValidator {
    * @throws IllegalArgumentException si la ruta es invalida
    */
   public static void validate(Route route) {
-    if (route == null) throw new IllegalArgumentException("Route cannot be null");
+    if (route == null)
+      throw new IllegalArgumentException("Route cannot be null");
     if (route.getOrigin() == null)
       throw new IllegalArgumentException("Route origin cannot be null");
     if (route.getDestination() == null)
@@ -47,13 +48,15 @@ public class RouteValidator {
    * @throws IllegalArgumentException si algun nodo no existe en el grafo
    */
   public static void validateAgainstGraph(Route route, Graph graph) {
-    if (graph == null) throw new IllegalArgumentException("Graph cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("Graph cannot be null");
     validate(route);
 
     if (!graph.hasNode(route.getOrigin().getId()))
       throw new IllegalArgumentException("Route origin node not found in graph: " + route.getOrigin().getId());
     if (!graph.hasNode(route.getDestination().getId()))
-      throw new IllegalArgumentException("Route destination node not found in graph: " + route.getDestination().getId());
+      throw new IllegalArgumentException(
+          "Route destination node not found in graph: " + route.getDestination().getId());
 
     for (Node node : route.getPath()) {
       if (!graph.hasNode(node.getId()))
@@ -64,9 +67,9 @@ public class RouteValidator {
   /**
    * Valida que exista una conexion directa entre dos nodos en el grafo.
    *
-   * @param graph grafo donde verificar la conexion
+   * @param graph  grafo donde verificar la conexion
    * @param fromId identificador del nodo origen
-   * @param toId identificador del nodo destino
+   * @param toId   identificador del nodo destino
    * @throws IllegalArgumentException si no existe conexion
    */
   public static void validateConnection(Graph graph, String fromId, String toId) {
@@ -87,11 +90,13 @@ public class RouteValidator {
    * @return {@code true} si todas las conexiones del path existen
    */
   public static boolean isPathValid(Graph graph, List<Node> path) {
-    if (path == null || path.size() < 2) return false;
+    if (path == null || path.size() < 2)
+      return false;
     for (int i = 0; i < path.size() - 1; i++) {
       String from = path.get(i).getId();
       String to = path.get(i + 1).getId();
-      if (!graph.hasEdge(from, to)) return false;
+      if (!graph.hasEdge(from, to))
+        return false;
     }
     return true;
   }

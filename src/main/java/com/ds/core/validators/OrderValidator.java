@@ -15,8 +15,7 @@ import java.util.List;
 public class OrderValidator {
 
   private static final List<OrderStatus> CANCELLABLE_STATUSES = List.of(
-      OrderStatus.PENDING, OrderStatus.PREPARING, OrderStatus.IN_TRANSIT
-  );
+      OrderStatus.PENDING, OrderStatus.PREPARING, OrderStatus.IN_TRANSIT);
 
   private OrderValidator() {
   }
@@ -28,7 +27,8 @@ public class OrderValidator {
    * @throws IllegalArgumentException si el pedido es invalido
    */
   public static void validate(Order order) {
-    if (order == null) throw new IllegalArgumentException("Order cannot be null");
+    if (order == null)
+      throw new IllegalArgumentException("Order cannot be null");
     if (order.getId() == null || order.getId().isBlank())
       throw new IllegalArgumentException("Order id cannot be blank");
     if (order.getClient() == null)
@@ -53,7 +53,8 @@ public class OrderValidator {
    * @return {@code true} si la transicion es permitida
    */
   public static boolean isValidTransition(OrderStatus current, OrderStatus next) {
-    if (current == null || next == null) return false;
+    if (current == null || next == null)
+      return false;
     switch (current) {
       case PENDING:
         return next == OrderStatus.PREPARING || next == OrderStatus.CANCELLED;

@@ -23,7 +23,8 @@ public class ClientValidator {
    * @throws IllegalArgumentException si el cliente es invalido
    */
   public static void validate(Client client) {
-    if (client == null) throw new IllegalArgumentException("Client cannot be null");
+    if (client == null)
+      throw new IllegalArgumentException("Client cannot be null");
     if (client.getId() == null || client.getId().isBlank())
       throw new IllegalArgumentException("Client id cannot be blank");
     if (client.getName() == null || client.getName().isBlank())

@@ -48,10 +48,10 @@ public class DistanceCalculator {
    * usando un factor de escala. Util cuando las coordenadas
    * representan posiciones en un mapa simplificado.
    *
-   * @param x1    coordenada x del primer punto
-   * @param y1    coordenada y del primer punto
-   * @param x2    coordenada x del segundo punto
-   * @param y2    coordenada y del segundo punto
+   * @param x1          coordenada x del primer punto
+   * @param y1          coordenada y del primer punto
+   * @param x2          coordenada x del segundo punto
+   * @param y2          coordenada y del segundo punto
    * @param scaleFactor factor de conversion a kilometros
    * @return distancia en kilometros
    */

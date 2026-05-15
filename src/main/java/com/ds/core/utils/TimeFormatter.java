@@ -21,10 +21,11 @@ public class TimeFormatter {
    * @return arreglo de 2 elementos: [horas, minutos]
    */
   public static int[] toHoursAndMinutes(double totalMinutes) {
-    if (totalMinutes < 0) throw new IllegalArgumentException("totalMinutes cannot be negative");
+    if (totalMinutes < 0)
+      throw new IllegalArgumentException("totalMinutes cannot be negative");
     int hours = (int) totalMinutes / 60;
     int minutes = (int) totalMinutes % 60;
-    return new int[]{hours, minutes};
+    return new int[] { hours, minutes };
   }
 
   /**
@@ -34,10 +35,13 @@ public class TimeFormatter {
    * @return cadena formateada
    */
   public static String format(double totalMinutes) {
-    if (totalMinutes < 0) throw new IllegalArgumentException("totalMinutes cannot be negative");
+    if (totalMinutes < 0)
+      throw new IllegalArgumentException("totalMinutes cannot be negative");
     int[] hm = toHoursAndMinutes(totalMinutes);
-    if (hm[0] == 0) return hm[1] + "min";
-    if (hm[1] == 0) return hm[0] + "h";
+    if (hm[0] == 0)
+      return hm[1] + "min";
+    if (hm[1] == 0)
+      return hm[0] + "h";
     return hm[0] + "h " + hm[1] + "min";
   }
 
@@ -48,7 +52,8 @@ public class TimeFormatter {
    * @return equivalente en minutos
    */
   public static double hoursToMinutes(double hours) {
-    if (hours < 0) throw new IllegalArgumentException("hours cannot be negative");
+    if (hours < 0)
+      throw new IllegalArgumentException("hours cannot be negative");
     return hours * 60;
   }
 
@@ -59,7 +64,8 @@ public class TimeFormatter {
    * @return equivalente en horas
    */
   public static double minutesToHours(double minutes) {
-    if (minutes < 0) throw new IllegalArgumentException("minutes cannot be negative");
+    if (minutes < 0)
+      throw new IllegalArgumentException("minutes cannot be negative");
     return minutes / 60.0;
   }
 
@@ -70,7 +76,8 @@ public class TimeFormatter {
    * @return equivalente en minutos
    */
   public static double secondsToMinutes(double seconds) {
-    if (seconds < 0) throw new IllegalArgumentException("seconds cannot be negative");
+    if (seconds < 0)
+      throw new IllegalArgumentException("seconds cannot be negative");
     return seconds / 60.0;
   }
 
