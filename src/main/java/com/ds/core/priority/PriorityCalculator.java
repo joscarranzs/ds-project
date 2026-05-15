@@ -21,7 +21,8 @@ public class PriorityCalculator {
    * @param rules reglas de prioridad del sistema
    */
   public PriorityCalculator(PriorityRules rules) {
-    if (rules == null) throw new IllegalArgumentException("rules cannot be null");
+    if (rules == null)
+      throw new IllegalArgumentException("rules cannot be null");
     this.rules = rules;
   }
 
@@ -36,7 +37,8 @@ public class PriorityCalculator {
    * @return puntaje de prioridad (entre 0 y {@code MAX_PRIORITY})
    */
   public int calculate(Order order) {
-    if (order == null) throw new IllegalArgumentException("order cannot be null");
+    if (order == null)
+      throw new IllegalArgumentException("order cannot be null");
 
     int score = 0;
     score += rules.bonusForDistance(order.getEstimatedTime());
@@ -65,9 +67,12 @@ public class PriorityCalculator {
    * @return nivel correspondiente
    */
   public PriorityLevel toLevel(int score) {
-    if (score >= rules.getUrgentThreshold()) return PriorityLevel.URGENT;
-    if (score >= rules.getHighThreshold()) return PriorityLevel.HIGH;
-    if (score >= rules.getMediumThreshold()) return PriorityLevel.MEDIUM;
+    if (score >= rules.getUrgentThreshold())
+      return PriorityLevel.URGENT;
+    if (score >= rules.getHighThreshold())
+      return PriorityLevel.HIGH;
+    if (score >= rules.getMediumThreshold())
+      return PriorityLevel.MEDIUM;
     return PriorityLevel.LOW;
   }
 }

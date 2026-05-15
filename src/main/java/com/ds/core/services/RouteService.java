@@ -27,8 +27,10 @@ public class RouteService {
    * @param optimizer optimizador de rutas
    */
   public RouteService(Graph graph, RouteOptimizer optimizer) {
-    if (graph == null) throw new IllegalArgumentException("graph cannot be null");
-    if (optimizer == null) throw new IllegalArgumentException("optimizer cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("graph cannot be null");
+    if (optimizer == null)
+      throw new IllegalArgumentException("optimizer cannot be null");
     this.graph = graph;
     this.optimizer = optimizer;
   }

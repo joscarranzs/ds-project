@@ -26,12 +26,12 @@ public class PriorityManager {
    * @param calculator calculador de prioridad
    */
   public PriorityManager(PriorityCalculator calculator) {
-    if (calculator == null) throw new IllegalArgumentException("calculator cannot be null");
+    if (calculator == null)
+      throw new IllegalArgumentException("calculator cannot be null");
     this.calculator = calculator;
     this.priorityQueue = new PriorityQueue<>(
         Comparator.comparingInt(Order::getPriority).reversed()
-            .thenComparing(Order::getCreatedAt)
-    );
+            .thenComparing(Order::getCreatedAt));
   }
 
   /**
@@ -41,7 +41,8 @@ public class PriorityManager {
    * @param order pedido a agregar
    */
   public void addOrder(Order order) {
-    if (order == null) throw new IllegalArgumentException("order cannot be null");
+    if (order == null)
+      throw new IllegalArgumentException("order cannot be null");
     calculator.calculateAndAssign(order);
     priorityQueue.offer(order);
   }

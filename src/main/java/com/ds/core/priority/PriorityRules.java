@@ -43,7 +43,7 @@ public class PriorityRules {
    * @param longDistanceBonus     puntos adicionales por larga distancia
    */
   public PriorityRules(int maxPriority, int mediumThreshold, int highThreshold,
-                        int urgentThreshold, double longDistanceThreshold, int longDistanceBonus) {
+      int urgentThreshold, double longDistanceThreshold, int longDistanceBonus) {
     this.maxPriority = maxPriority;
     this.mediumThreshold = mediumThreshold;
     this.highThreshold = highThreshold;
@@ -59,8 +59,10 @@ public class PriorityRules {
    * @return puntos de prioridad adicionales
    */
   public int bonusForDistance(double estimatedTime) {
-    if (estimatedTime > 60) return longDistanceBonus * 2;
-    if (estimatedTime > 30) return longDistanceBonus;
+    if (estimatedTime > 60)
+      return longDistanceBonus * 2;
+    if (estimatedTime > 30)
+      return longDistanceBonus;
     return 0;
   }
 
@@ -71,9 +73,12 @@ public class PriorityRules {
    * @return puntos de prioridad adicionales
    */
   public int bonusForPreparationTime(double preparationTimeMinutes) {
-    if (preparationTimeMinutes > 20) return 0;
-    if (preparationTimeMinutes > 10) return 5;
-    if (preparationTimeMinutes > 0) return 10;
+    if (preparationTimeMinutes > 20)
+      return 0;
+    if (preparationTimeMinutes > 10)
+      return 5;
+    if (preparationTimeMinutes > 0)
+      return 10;
     return 0;
   }
 
@@ -84,8 +89,10 @@ public class PriorityRules {
    * @return puntos adicionales
    */
   public int bonusForPriority(int currentPriority) {
-    if (currentPriority >= urgentThreshold) return 10;
-    if (currentPriority >= highThreshold) return 5;
+    if (currentPriority >= urgentThreshold)
+      return 10;
+    if (currentPriority >= highThreshold)
+      return 5;
     return 0;
   }
 

@@ -20,9 +20,9 @@ import java.util.List;
 /**
  * Coordinador principal de todos los modulos del core.
  * <p>
- * Actua como fachada (facade) del sistema, inicializando y 
- * orquestando los modulos de grafo, servicios, prioridad y 
- * algoritmos. Proporciona un punto de entrada unico para 
+ * Actua como fachada (facade) del sistema, inicializando y
+ * orquestando los modulos de grafo, servicios, prioridad y
+ * algoritmos. Proporciona un punto de entrada unico para
  * la capa de presentacion (controllers / UI).
  * </p>
  */
@@ -152,15 +152,15 @@ public class SystemManager {
    * Crea un pedido completo: registra cliente, calcula ruta,
    * estima tiempo y encola en prioridad.
    *
-   * @param clientName nombre del cliente
-   * @param phone      telefono del cliente
-   * @param address    direccion del cliente
-   * @param origin     nodo de origen
+   * @param clientName  nombre del cliente
+   * @param phone       telefono del cliente
+   * @param address     direccion del cliente
+   * @param origin      nodo de origen
    * @param destination nodo de destino
    * @return pedido creado
    */
   public Order createFullOrder(String clientName, String phone, String address,
-                                  Node origin, Node destination) {
+      Node origin, Node destination) {
     Client client = clientService.registerClient(clientName, phone, address, origin);
     Order order = orderService.createOrder(client, origin, destination);
     estimatedTimeService.estimateAndAssign(order);

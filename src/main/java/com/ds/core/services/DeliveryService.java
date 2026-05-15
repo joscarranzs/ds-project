@@ -69,8 +69,8 @@ public class DeliveryService {
   /**
    * Actualiza la ubicacion de un repartidor.
    *
-   * @param driverName    nombre del repartidor
-   * @param newLocation   nueva ubicacion
+   * @param driverName  nombre del repartidor
+   * @param newLocation nueva ubicacion
    * @return Optional con el repartidor actualizado
    */
   public Optional<DeliveryDriver> updateLocation(String driverName, Node newLocation) {

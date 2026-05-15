@@ -123,7 +123,8 @@ public class SessionManager {
    * @return tiempo transcurrido de la sesion en minutos
    */
   public long getSessionDurationMinutes() {
-    if (sessionStart == null) return 0;
+    if (sessionStart == null)
+      return 0;
     return java.time.Duration.between(sessionStart, LocalDateTime.now()).toMinutes();
   }
 

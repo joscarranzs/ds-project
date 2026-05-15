@@ -35,11 +35,15 @@ public class OrderManager {
    * @param estimatedTimeService servicio de estimacion de tiempo
    */
   public OrderManager(OrderService orderService, PriorityManager priorityManager,
-                       DeliveryService deliveryService, EstimatedTimeService estimatedTimeService) {
-    if (orderService == null) throw new IllegalArgumentException("orderService cannot be null");
-    if (priorityManager == null) throw new IllegalArgumentException("priorityManager cannot be null");
-    if (deliveryService == null) throw new IllegalArgumentException("deliveryService cannot be null");
-    if (estimatedTimeService == null) throw new IllegalArgumentException("estimatedTimeService cannot be null");
+      DeliveryService deliveryService, EstimatedTimeService estimatedTimeService) {
+    if (orderService == null)
+      throw new IllegalArgumentException("orderService cannot be null");
+    if (priorityManager == null)
+      throw new IllegalArgumentException("priorityManager cannot be null");
+    if (deliveryService == null)
+      throw new IllegalArgumentException("deliveryService cannot be null");
+    if (estimatedTimeService == null)
+      throw new IllegalArgumentException("estimatedTimeService cannot be null");
     this.orderService = orderService;
     this.priorityManager = priorityManager;
     this.deliveryService = deliveryService;
@@ -54,7 +58,8 @@ public class OrderManager {
    */
   public Optional<Order> processNextOrder() {
     Order next = priorityManager.pollNextOrder();
-    if (next == null) return Optional.empty();
+    if (next == null)
+      return Optional.empty();
 
     Optional<DeliveryDriver> driver = deliveryService.assignOrder(next);
     if (driver.isPresent()) {

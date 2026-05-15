@@ -28,7 +28,8 @@ public class DFSAlgorithm {
    * @param graph grafo sobre el cual operar
    */
   public DFSAlgorithm(Graph graph) {
-    if (graph == null) throw new IllegalArgumentException("graph cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("graph cannot be null");
     this.graph = graph;
   }
 
@@ -40,7 +41,8 @@ public class DFSAlgorithm {
    * @return lista de nodos en orden de visita DFS
    */
   public List<Node> traverse(String originId) {
-    if (!graph.hasNode(originId)) return Collections.emptyList();
+    if (!graph.hasNode(originId))
+      return Collections.emptyList();
 
     Set<String> visited = new HashSet<>();
     List<Node> result = new ArrayList<>();
@@ -68,7 +70,8 @@ public class DFSAlgorithm {
    * @return lista de nodos desde origen a destino, o lista vacia si no existe
    */
   public List<Node> findPath(String originId, String destinationId) {
-    if (!graph.hasNode(originId) || !graph.hasNode(destinationId)) return Collections.emptyList();
+    if (!graph.hasNode(originId) || !graph.hasNode(destinationId))
+      return Collections.emptyList();
     if (originId.equals(destinationId)) {
       return List.of(graph.getNode(originId));
     }
@@ -85,7 +88,8 @@ public class DFSAlgorithm {
       List<Node> path = stack.pop();
       Node last = path.get(path.size() - 1);
 
-      if (last.getId().equals(destinationId)) return path;
+      if (last.getId().equals(destinationId))
+        return path;
 
       for (Node neighbor : graph.getNeighbors(last.getId())) {
         String neighborId = neighbor.getId();
@@ -108,7 +112,8 @@ public class DFSAlgorithm {
    * @return cantidad de nodos alcanzables (incluyendo el origen)
    */
   public int countReachable(String originId) {
-    if (!graph.hasNode(originId)) return 0;
+    if (!graph.hasNode(originId))
+      return 0;
     Set<String> visited = new HashSet<>();
     dfsRecursive(originId, visited, new ArrayList<>());
     return visited.size();

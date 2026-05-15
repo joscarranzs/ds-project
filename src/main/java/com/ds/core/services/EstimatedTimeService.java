@@ -26,8 +26,8 @@ public class EstimatedTimeService {
   /**
    * Construye el servicio con valores por defecto de {@link Constants}.
    *
-   * @param optimizer     optimizador de rutas
-   * @param graphManager  administrador del grafo
+   * @param optimizer    optimizador de rutas
+   * @param graphManager administrador del grafo
    */
   public EstimatedTimeService(RouteOptimizer optimizer, GraphManager graphManager) {
     this(optimizer, graphManager, Constants.DEFAULT_AVERAGE_SPEED_KMH, Constants.DEFAULT_PREPARATION_TIME_MIN);
@@ -42,9 +42,11 @@ public class EstimatedTimeService {
    * @param basePreparationTime tiempo base de preparacion en minutos
    */
   public EstimatedTimeService(RouteOptimizer optimizer, GraphManager graphManager,
-                                double averageSpeedKmh, double basePreparationTime) {
-    if (optimizer == null) throw new IllegalArgumentException("optimizer cannot be null");
-    if (graphManager == null) throw new IllegalArgumentException("graphManager cannot be null");
+      double averageSpeedKmh, double basePreparationTime) {
+    if (optimizer == null)
+      throw new IllegalArgumentException("optimizer cannot be null");
+    if (graphManager == null)
+      throw new IllegalArgumentException("graphManager cannot be null");
     this.optimizer = optimizer;
     this.graphManager = graphManager;
     this.averageSpeedKmh = averageSpeedKmh;
@@ -62,19 +64,20 @@ public class EstimatedTimeService {
    * @return tiempo estimado total en minutos
    */
   public double estimate(Order order) {
-    if (order == null) throw new IllegalArgumentException("order cannot be null");
+    if (order == null)
+      throw new IllegalArgumentException("order cannot be null");
 
     Route route = optimizer.optimizeByTime(
         order.getOrigin().getId(),
-        order.getDestination().getId()
-    );
+        order.getDestination().getId());
 
     double travelTime;
     if (route != null) {
       travelTime = route.getTotalTime();
     } else {
       double distance = order.getOrigin().getId().equals(order.getDestination().getId())
-          ? 0 : Constants.CLOSE_DISTANCE_KM;
+          ? 0
+          : Constants.CLOSE_DISTANCE_KM;
       travelTime = (distance / averageSpeedKmh) * 60;
     }
 

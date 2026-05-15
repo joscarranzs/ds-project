@@ -26,7 +26,8 @@ public class RouteOptimizer {
    * @param graph grafo sobre el cual operar
    */
   public RouteOptimizer(Graph graph) {
-    if (graph == null) throw new IllegalArgumentException("graph cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("graph cannot be null");
     this.dijkstra = new DijkstraAlgorithm(graph);
     this.bfs = new BFSAlgorithm(graph);
     this.dfs = new DFSAlgorithm(graph);
@@ -82,7 +83,8 @@ public class RouteOptimizer {
         return dijkstra.findFastestPath(originId, destinationId);
       case EDGES:
         var path = bfs.findShortestPathByEdges(originId, destinationId);
-        if (path.isEmpty()) return null;
+        if (path.isEmpty())
+          return null;
         double dist = 0;
         double time = 0;
         return new Route(path.get(0), path.get(path.size() - 1), path, dist, time);
@@ -103,8 +105,7 @@ public class RouteOptimizer {
     return List.of(
         optimize(originId, destinationId, OptimizationCriterion.DISTANCE),
         optimize(originId, destinationId, OptimizationCriterion.TIME),
-        optimize(originId, destinationId, OptimizationCriterion.EDGES)
-    ).stream()
+        optimize(originId, destinationId, OptimizationCriterion.EDGES)).stream()
         .filter(r -> r != null)
         .collect(Collectors.toList());
   }

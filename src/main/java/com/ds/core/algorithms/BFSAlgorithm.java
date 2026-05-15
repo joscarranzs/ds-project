@@ -30,7 +30,8 @@ public class BFSAlgorithm {
    * @param graph grafo sobre el cual operar
    */
   public BFSAlgorithm(Graph graph) {
-    if (graph == null) throw new IllegalArgumentException("graph cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("graph cannot be null");
     this.graph = graph;
   }
 
@@ -38,13 +39,15 @@ public class BFSAlgorithm {
    * Busca todos los nodos alcanzables desde el nodo origen
    * hasta una profundidad maxima (numero de aristas).
    *
-   * @param originId    identificador del nodo origen
-   * @param maxDepth    profundidad maxima de busqueda
+   * @param originId identificador del nodo origen
+   * @param maxDepth profundidad maxima de busqueda
    * @return lista de nodos encontrados dentro del radio
    */
   public List<Node> findNodesWithinDepth(String originId, int maxDepth) {
-    if (!graph.hasNode(originId)) return Collections.emptyList();
-    if (maxDepth < 0) return Collections.emptyList();
+    if (!graph.hasNode(originId))
+      return Collections.emptyList();
+    if (maxDepth < 0)
+      return Collections.emptyList();
 
     Set<String> visited = new HashSet<>();
     List<Node> result = new ArrayList<>();
@@ -63,7 +66,8 @@ public class BFSAlgorithm {
         result.add(graph.getNode(current));
       }
 
-      if (currentDepth >= maxDepth) continue;
+      if (currentDepth >= maxDepth)
+        continue;
 
       for (Node neighbor : graph.getNeighbors(current)) {
         String neighborId = neighbor.getId();
@@ -86,8 +90,10 @@ public class BFSAlgorithm {
    * @return {@code true} si existe un camino
    */
   public boolean hasPath(String originId, String destinationId) {
-    if (!graph.hasNode(originId) || !graph.hasNode(destinationId)) return false;
-    if (originId.equals(destinationId)) return true;
+    if (!graph.hasNode(originId) || !graph.hasNode(destinationId))
+      return false;
+    if (originId.equals(destinationId))
+      return true;
 
     Set<String> visited = new HashSet<>();
     Queue<String> queue = new ArrayDeque<>();
@@ -98,7 +104,8 @@ public class BFSAlgorithm {
       String current = queue.poll();
       for (Node neighbor : graph.getNeighbors(current)) {
         String neighborId = neighbor.getId();
-        if (neighborId.equals(destinationId)) return true;
+        if (neighborId.equals(destinationId))
+          return true;
         if (!visited.contains(neighborId)) {
           visited.add(neighborId);
           queue.add(neighborId);
@@ -117,7 +124,8 @@ public class BFSAlgorithm {
    * @return lista ordenada de nodos desde origen a destino, o lista vacia
    */
   public List<Node> findShortestPathByEdges(String originId, String destinationId) {
-    if (!graph.hasNode(originId) || !graph.hasNode(destinationId)) return Collections.emptyList();
+    if (!graph.hasNode(originId) || !graph.hasNode(destinationId))
+      return Collections.emptyList();
 
     Set<String> visited = new HashSet<>();
     Queue<List<Node>> queue = new ArrayDeque<>();
@@ -131,7 +139,8 @@ public class BFSAlgorithm {
       List<Node> path = queue.poll();
       Node last = path.get(path.size() - 1);
 
-      if (last.getId().equals(destinationId)) return path;
+      if (last.getId().equals(destinationId))
+        return path;
 
       for (Node neighbor : graph.getNeighbors(last.getId())) {
         String neighborId = neighbor.getId();

@@ -29,7 +29,8 @@ public class DijkstraAlgorithm {
    * @param graph grafo sobre el cual operar
    */
   public DijkstraAlgorithm(Graph graph) {
-    if (graph == null) throw new IllegalArgumentException("graph cannot be null");
+    if (graph == null)
+      throw new IllegalArgumentException("graph cannot be null");
     this.graph = graph;
   }
 
@@ -58,8 +59,10 @@ public class DijkstraAlgorithm {
   }
 
   private Route findPath(String originId, String destinationId, boolean useDistance) {
-    if (!graph.hasNode(originId)) return null;
-    if (!graph.hasNode(destinationId)) return null;
+    if (!graph.hasNode(originId))
+      return null;
+    if (!graph.hasNode(destinationId))
+      return null;
 
     Node origin = graph.getNode(originId);
     Node destination = graph.getNode(destinationId);
@@ -78,8 +81,10 @@ public class DijkstraAlgorithm {
       NodeDistance current = queue.poll();
       String currentId = current.nodeId;
 
-      if (currentId.equals(destinationId)) break;
-      if (current.distance > distances.get(currentId)) continue;
+      if (currentId.equals(destinationId))
+        break;
+      if (current.distance > distances.get(currentId))
+        continue;
 
       for (Edge edge : graph.getEdgesFrom(currentId)) {
         String neighborId = edge.getTo().getId();
@@ -94,7 +99,8 @@ public class DijkstraAlgorithm {
       }
     }
 
-    if (!previous.containsKey(destinationId) && !originId.equals(destinationId)) return null;
+    if (!previous.containsKey(destinationId) && !originId.equals(destinationId))
+      return null;
 
     List<Node> path = buildPath(previous, origin, destination);
     double totalDistance = 0;

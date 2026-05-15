@@ -31,7 +31,8 @@ public class OrderService {
    * @param priorityManager gestor de prioridades del sistema
    */
   public OrderService(PriorityManager priorityManager) {
-    if (priorityManager == null) throw new IllegalArgumentException("priorityManager cannot be null");
+    if (priorityManager == null)
+      throw new IllegalArgumentException("priorityManager cannot be null");
     this.orders = new ArrayList<>();
     this.priorityManager = priorityManager;
   }
