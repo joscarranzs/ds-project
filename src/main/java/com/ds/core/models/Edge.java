@@ -1,7 +1,8 @@
 package com.ds.core.models;
 
-import com.ds.core.enums.RouteStatus;
 import java.util.Objects;
+
+import com.ds.core.enums.RouteStatus;
 
 /**
  * Representa una arista o conexión entre dos nodos del grafo.
@@ -18,6 +19,7 @@ public class Edge {
   private final double distance;
   private final double time;
   private RouteStatus status;
+  private boolean blocked;
 
   /**
    * Construye una arista con estado inicial {@link RouteStatus#OPEN}.
@@ -43,6 +45,14 @@ public class Edge {
     this.time = time;
     this.status = RouteStatus.OPEN;
   }
+// Método para actualizar el estado de bloqueo de la arista, utilizado por EventGenerator
+//para simular eventos de bloqueo temporal en la ruta.
+  public boolean isBlocked() {
+    return blocked;
+}
+public void setBlocked(boolean blocked) {
+    this.blocked = blocked;
+}
 
   /**
    * Construye una arista con un estado específico.
