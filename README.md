@@ -198,4 +198,4 @@ Models  (core/models)
 
 Las peticiones de la UI pasan por los controladores, que delegan en los servicios. Los servicios usan los managers para coordinar la lógica, los managers invocan los algoritmos sobre el grafo, y todo opera sobre los modelos del dominio.
 
-## Información importante del proyecto final
+
