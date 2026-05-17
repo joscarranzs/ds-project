@@ -1,28 +1,35 @@
 package com.ds.ui;
 
+import com.myui.window.MainWindow;
+import com.myui.layouts.HBoxLayout;
+import com.ds.ui.components.main.MainContentArea;
+import com.ds.ui.components.sidebar.SidebarPanel;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 /**
- * Minimal JavaFX launcher used for quick UI verification during development.
+ * Punto de entrada de la aplicación JavaFX del sistema de entregas.
+ * <p>
+ * Compone la interfaz principal usando el framework myui:
+ * un layout horizontal con la barra lateral de navegación
+ * y el área de contenido principal, todo envuelto en un MainWindow.
+ * </p>
  */
 public class AppLauncher extends Application {
 
-    @Override
-    public void start(Stage primaryStage) {
-        BorderPane root = new BorderPane();
-        root.setCenter(new Label("Delivery System UI - AppLauncher"));
+  @Override
+  public void start(Stage primaryStage) {
+    HBoxLayout mainLayout = new HBoxLayout();
 
-        Scene scene = new Scene(root, 640, 480);
-        primaryStage.setTitle("DS Project - UI Preview");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
+    mainLayout.addElement(new SidebarPanel().getVBox());
+    mainLayout.addElement(new MainContentArea().getVBox());
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    MainWindow mainWindow = new MainWindow(primaryStage, mainLayout.getHBox());
+
+    mainWindow.show();
+  }
+
+  public static void main(String[] args) {
+    launch(args);
+  }
 }

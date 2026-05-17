@@ -9,5 +9,12 @@ public class SidebarPanel extends VBoxLayout {
   public SidebarPanel() {
     addElement(new HeaderSection().getVBox());
     addElement(new NavSection().getVBox());
+
+    setInlineStyle(
+        "-fx-background-color: #F3F4F6; " +
+        "-fx-pref-width: 250px; " +
+        "-fx-pref-height: 600px; " +
+        "-fx-padding: 20px;"
+    );
   }
 }

@@ -1,0 +1,64 @@
+{
+  "palette": {
+    "primary": {
+      "black": "#010101",
+      "charcoal": "#212325",
+      "darkGray": "#676B6E"
+    },
+    "backgrounds": {
+      "mainBackground": "#FCFDFE",
+      "secondaryBackground": "#F8F9FD",
+      "sidebarBackground": "#F3F4F6",
+      "cardBackground": "#FFFFFF",
+      "graphBackground": "#F7F8FA"
+    },
+    "borders": {
+      "lightBorder": "#E3E6EA",
+      "mediumBorder": "#D5D2D4",
+      "softBorder": "#EEF2F9"
+    },
+    "text": {
+      "primaryText": "#1A1A1A",
+      "secondaryText": "#676B6E",
+      "mutedText": "#8D9395",
+      "whiteText": "#FFFFFF"
+    },
+    "status": {
+      "success": "#1F8A70",
+      "successSoft": "#DFF5EE",
+      "warning": "#E6B85C",
+      "warningSoft": "#FFF4D8",
+      "danger": "#964549",
+      "dangerSoft": "#FCE4E4",
+      "info": "#AFC9F7",
+      "infoSoft": "#EAF2FF"
+    },
+    "cards": {
+      "urgentCardBorder": "#B94A48",
+      "urgentCardBackground": "#FFF5F5",
+      "normalCardBorder": "#2F8F83",
+      "normalCardBackground": "#F4FFFC",
+      "scheduledCardBorder": "#E5D7B2",
+      "scheduledCardBackground": "#FFFDF8"
+    },
+    "buttons": {
+      "primaryButton": "#000000",
+      "primaryButtonHover": "#1A1A1A",
+      "secondaryButton": "#EEF2F9",
+      "secondaryButtonHover": "#E3EAF5"
+    },
+    "graph": {
+      "nodeRestaurant": "#000000",
+      "nodeClient": "#5FB8A1",
+      "nodeHub": "#FFFFFF",
+      "linePrimary": "#BFC4CC",
+      "lineSecondary": "#D8DDE5",
+      "alertDot": "#D62828"
+    },
+    "fuelIndicators": {
+      "highFuel": "#1F8A70",
+      "mediumFuel": "#E6B85C",
+      "lowFuel": "#B94A48"
+    }
+  }
+}

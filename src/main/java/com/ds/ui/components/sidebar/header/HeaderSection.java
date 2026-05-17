@@ -9,5 +9,6 @@ public class HeaderSection extends VBoxLayout {
   public HeaderSection() {
     addElement(new TitleText().getLabel());
     addElement(new DescriptionText().getLabel());
+    setInlineStyle("-fx-padding: 20px 20px 10px 20px;");
   }
 }

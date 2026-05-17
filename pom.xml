@@ -32,7 +32,7 @@
     <dependency>
       <groupId>com.github.joscarranzs</groupId>
       <artifactId>myui</artifactId>
-      <version>v0.0.1</version>
+      <version>v0.0.2</version>
     </dependency>
 
     <dependency>
